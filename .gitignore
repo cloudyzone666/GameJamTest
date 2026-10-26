@@ -1,0 +1,56 @@
+# Unity 2022：同时覆盖外层工作区和内层 GameJam2026 工程。
+# 缓存目录限定在这两个位置，保留 Assets 中可能存在的同名资源目录。
+
+# Unity 自动生成目录：外层
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emory[Cc]aptures/
+/[Rr]ecordings/
+
+# Unity 自动生成目录：内层工程
+/GameJam2026/[Ll]ibrary/
+/GameJam2026/[Tt]emp/
+/GameJam2026/[Oo]bj/
+/GameJam2026/[Ll]ogs/
+/GameJam2026/[Uu]ser[Ss]ettings/
+/GameJam2026/[Mm]emory[Cc]aptures/
+/GameJam2026/[Rr]ecordings/
+
+# 游戏构建输出
+/[Bb]uild/
+/[Bb]uilds/
+/GameJam2026/[Bb]uild/
+/GameJam2026/[Bb]uilds/
+
+# IDE 本机缓存和 Unity 自动生成的工程文件（匹配所有层级）
+.vs/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.sln.docstates
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.opendb
+*.VC.db
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 操作系统生成文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 保留 Assets/、Packages/、ProjectSettings/ 及资源的 .meta 文件。
+# 保留 AGENTS.md、ENV_CHECK.md 和 .agents/；不对这些路径设置忽略规则。
