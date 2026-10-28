@@ -2,11 +2,24 @@
 
 ## 项目背景
 
-- 游戏引擎：Unity 2022
+- 游戏引擎：Unity 2022.3.62f3c1
 - 编程语言：C#
 - 项目类型：Game Jam 限时游戏开发
-- 当前状态：尚未创建 Unity 项目
+- 当前状态：Unity 项目已创建，已完成 Git 初始提交。
+- 外层工作区与 Git 仓库根目录：`D:\cby\project\GameJam2026`
+- 内层 Unity 项目根目录：`D:\cby\project\GameJam2026\GameJam2026`；`Assets/`、`Packages/`、`ProjectSettings/` 位于该目录中。
+- 实际项目模板：Universal 2D / URP（`com.unity.template.universal-2d@2.1.3`），不是原计划的 2D Core；URP 包版本为 `14.0.12`。
+- 当前输入系统：旧版 Input Manager（`activeInputHandler: 0`）；未安装新 Input System 包（`com.unity.inputsystem`）。
+- 目标平台：Windows；用户已检查构建平台正常，尚未验证最终构建。
+- Git 初始提交：`1d1f094`（`Initial commit: Unity GameJam project setup`）。
 - 主要目标：在有限时间内制作出稳定、可游玩的游戏
+
+## 当前检查状态与已知问题
+
+- 用户已确认项目可正常打开，Console 未发现其他红色错误。
+- Package Manager 在线搜索曾出现账号访问令牌失效错误，尚未确认已彻底修复。
+- Windows 构建平台、项目打开及 Console 状态来自用户的检查反馈；本次文档更新未重新操作 Unity Editor 验证。
+- 尚未实际验证 Unity 编译、Play Mode 和最终构建。项目可打开、平台检查正常或静态检查通过，都不等于这些验证已经通过。
 
 ## 开发规则
 
