@@ -1,17 +1,25 @@
-# Environment Check
+# 环境与验证状态
 
-- Codex local workspace: accessible
-- Unity version target: Unity 2022.3.62f3c1
-- Project status: created
-- Workspace and Git repository root: `D:\cby\project\GameJam2026`
-- Unity project root: `D:\cby\project\GameJam2026\GameJam2026` (nested project; contains `Assets/`, `Packages/`, and `ProjectSettings/`)
-- Initial Git commit: `1d1f094` (`Initial commit: Unity GameJam project setup`)
-- Actual project template: Universal 2D / URP (`com.unity.template.universal-2d@2.1.3`), not the originally planned 2D Core template
-- Render pipeline package: `com.unity.render-pipelines.universal` version `14.0.12`
-- Input system: legacy Input Manager (`activeInputHandler: 0`); the new Input System package (`com.unity.inputsystem`) is not installed
-- Target platform: Windows; the user checked the build platform and reported it was normal; this does not verify a final build
-- Unity Editor: the user confirmed the project opens normally
-- Package Manager online search: previously reported an invalid/expired account access-token error; a complete fix has not been confirmed
-- Console: the user reported no other red errors
-- Verification scope: project configuration files and Git were inspected during this documentation update; Windows build-platform, project-opening, and Console observations are user-confirmed and were not rechecked in Unity Editor during this update
-- Validation still pending: Unity compilation, Play Mode, and the final build have not been actually verified
+记录整理日期：2026-10-28。
+技术约束和目录说明见 AGENTS.md；下表只记录检查状态与证据。
+
+| 检查项 | 当前结果 | 日期与依据 |
+| --- | --- | --- |
+| Unity 版本、URP、输入配置 | 静态配置与 AGENTS.md 中的基线一致 | 2026-10-28，读取 ProjectVersion.txt、Packages/manifest.json 和 ProjectSettings.asset |
+| Unity 工程打开 | 用户曾反馈正常 | 反馈日期未记录，本次未操作 Editor 复核 |
+| Windows 构建平台 | 用户曾反馈设置正常 | 反馈日期未记录，不代表构建成功 |
+| Console | 用户曾反馈无其他红色错误 | 反馈日期未记录，不代表本次编译或试玩通过 |
+| Package Manager 在线搜索 | 曾遇到账号访问令牌失效，是否恢复待确认 | 历史反馈，本次未复测 |
+| Unity 编译 | 未实际验证 | 没有本次编译结果 |
+| Play Mode / 人工试玩 | 未实际验证 | 没有运行记录 |
+| Windows 构建及产物启动 | 未实际验证 | 没有构建与启动记录 |
+
+## 下一项验证
+
+- 用当前工程完成一次 Windows 构建并从输出目录启动，记录构建结果、启动表现和发现的问题。
+
+## 更新规则
+
+- 只有新的检查证据才能改变结果；记录检查日期、检查方式、结果及来源。
+- 只更新本次实际检查的项目，其余项目保留原状态。
+- 运行结果只适用于被检查的版本；相关代码、资源或配置变更后，应明确哪些检查需要重做。
