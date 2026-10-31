@@ -1,22 +1,25 @@
 # 环境与验证状态
 
-记录整理日期：2026-10-28。
+记录整理日期：2026-10-30。
 技术约束和目录说明见 AGENTS.md；下表只记录检查状态与证据。
 
 | 检查项 | 当前结果 | 日期与依据 |
 | --- | --- | --- |
-| Unity 版本、URP、输入配置 | 静态配置与 AGENTS.md 中的基线一致 | 2026-10-28，读取 ProjectVersion.txt、Packages/manifest.json 和 ProjectSettings.asset |
-| Unity 工程打开 | 用户曾反馈正常 | 反馈日期未记录，本次未操作 Editor 复核 |
+| Unity 版本、URP、输入配置 | Unity 2022.3.62f3c1 / URP 14.0.12；按用户要求切换为 Input System 1.14.2，activeInputHandler: 1 | 2026-10-30，读取实际配置，并由指定版本 Unity 执行后台导入 |
+| Input System 包导入 | 已完成；项目 PackageCache 中解析到 1.14.2，输入模块初始化成功 | 2026-10-30，本机已有完整包缓存；本次 Unity 导入日志 |
+| Unity 交互界面打开 | 用户曾反馈正常 | 反馈日期未记录，本次仅后台导入，未通过交互界面复核 |
 | Windows 构建平台 | 用户曾反馈设置正常 | 反馈日期未记录，不代表构建成功 |
-| Console | 用户曾反馈无其他红色错误 | 反馈日期未记录，不代表本次编译或试玩通过 |
+| Console 界面 | 用户曾反馈无其他红色错误 | 反馈日期未记录，该历史反馈不作本次验收依据；本次编译结果见下方 |
 | Package Manager 在线搜索 | 曾遇到账号访问令牌失效，是否恢复待确认 | 历史反馈，本次未复测 |
-| Unity 编译 | 未实际验证 | 没有本次编译结果 |
+| Unity 编译 | 本次后台导入和脚本编译成功，进程退出码 0；Assembly-CSharp.dll 已生成 | 2026-10-30，GameJam2026/Logs/whitebox-import.log 记录 Tundra build success 与 Exiting batchmode successfully now |
+| 白盒场景与脚本接线 | 文件接线完成；场景、控制脚本和物理材质已由 Unity 导入；未发现重复或缺失的本地 fileID/GUID | 2026-10-30，本次静态引用核对和 Unity 导入日志；不代表 Play Mode 验收 |
 | Play Mode / 人工试玩 | 未实际验证 | 没有运行记录 |
 | Windows 构建及产物启动 | 未实际验证 | 没有构建与启动记录 |
 
 ## 下一项验证
 
-- 用当前工程完成一次 Windows 构建并从输出目录启动，记录构建结果、启动表现和发现的问题。
+- 在 SampleScene 中完成人工验收：A/D 移动、松开及同时按下停止、平台落地、走下平台后的落地、两侧墙体阻挡；操作步骤见 README.md。
+- 完成上述验收后，用当前工程完成一次 Windows 构建并从输出目录启动，记录构建结果、启动表现和发现的问题。
 
 ## 更新规则
 

@@ -4,7 +4,7 @@
 
 - 项目用途：Game Jam 限时开发，优先交付稳定、可游玩的核心玩法。
 - 技术基线：Unity 2022.3.62f3c1、C#、Universal 2D / URP 14.0.12。
-- 输入基线：旧版 Input Manager；不要在未检查配置的情况下使用新 Input System。
+- 输入基线：New Input System 1.14.2，Active Input Handling 为 Input System Package (New)。2026-10-30 按用户明确要求切换；后续涉及输入时核对实际配置，不混用旧版 Input Manager。
 - 仓库根目录：D:\cby\project\GameJam2026。
 - Unity 工程目录：仓库内 GameJam2026/；Assets/、Packages/、ProjectSettings/ 位于其中。
 - 目标平台：Windows。
