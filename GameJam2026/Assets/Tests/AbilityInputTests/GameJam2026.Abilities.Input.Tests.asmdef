@@ -1,0 +1,22 @@
+{
+    "name": "GameJam2026.Abilities.Input.Tests",
+    "rootNamespace": "GameJam2026.Abilities.Input.Tests",
+    "references": [
+        "GameJam2026.Abilities",
+        "GameJam2026.Abilities.UI",
+        "GameJam2026.Abilities.Input",
+        "GameJam2026.Abilities.Integration",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "optionalUnityReferences": ["TestAssemblies"],
+    "noEngineReferences": false
+}

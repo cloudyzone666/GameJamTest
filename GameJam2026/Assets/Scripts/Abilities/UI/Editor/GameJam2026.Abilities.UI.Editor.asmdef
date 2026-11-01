@@ -1,0 +1,7 @@
+{
+    "name": "GameJam2026.Abilities.UI.Editor",
+    "rootNamespace": "GameJam2026.Abilities.UI.Editor",
+    "references": ["GameJam2026.Abilities", "GameJam2026.Abilities.UI", "GameJam2026.Abilities.Input", "GameJam2026.Abilities.Integration", "UnityEngine.UI", "Unity.InputSystem"],
+    "includePlatforms": ["Editor"],
+    "autoReferenced": true
+}

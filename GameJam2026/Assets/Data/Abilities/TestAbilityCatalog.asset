@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f917df7c565b49118e512e174fcf396c, type: 3}
+  m_Name: TestAbilityCatalog
+  m_EditorClassIdentifier: 
+  categories:
+  - type: 0
+    displayName: 移动
+    slots:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - type: 1
+    displayName: 跳跃
+    slots:
+    - {fileID: 11400000, guid: 852aed4f85f84043ad85783240382150, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - type: 2
+    displayName: 冲刺
+    slots:
+    - {fileID: 11400000, guid: 9daa7f8a3058463db2f1db4000508c34, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - type: 3
+    displayName: 特殊
+    slots:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}

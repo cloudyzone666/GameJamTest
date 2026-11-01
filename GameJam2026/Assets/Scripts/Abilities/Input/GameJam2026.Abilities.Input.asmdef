@@ -1,0 +1,10 @@
+{
+    "name": "GameJam2026.Abilities.Input",
+    "rootNamespace": "GameJam2026.Abilities.Input",
+    "references": ["GameJam2026.Abilities", "GameJam2026.Abilities.UI", "Unity.InputSystem"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": false
+}

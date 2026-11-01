@@ -1,0 +1,15 @@
+{
+    "name": "GameJam2026.Abilities.EditModeTests",
+    "rootNamespace": "GameJam2026.Abilities.Tests",
+    "references": ["GameJam2026.Abilities"],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "optionalUnityReferences": ["TestAssemblies"],
+    "noEngineReferences": false
+}
