@@ -76,8 +76,9 @@ namespace GameJam2026.Abilities.UI.Tests
 
             Assert.That(ui.SelectSlot(2, 0), Is.True);
             Assert.That(ui.SelectedAbility.AbilityId, Is.EqualTo("dash.test"));
-            Assert.That(FindText(ui.transform, "DetailParameters").text, Does.Contain("冲刺距离：4"));
-            Assert.That(ParameterLineCount(ui), Is.EqualTo(1));
+            Assert.That(FindText(ui.transform, "DetailParameters").text,
+                Does.Contain("冲刺距离：4").And.Contain("冲刺持续时间：0.2"));
+            Assert.That(ParameterLineCount(ui), Is.EqualTo(2));
             Assert.That(FindText(ui.transform, "DetailStatus").text, Does.Contain("未装备"));
             AssertOnlySelected(ui, FindSlot(ui, "dash.test"));
             yield return null;

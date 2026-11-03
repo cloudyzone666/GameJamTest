@@ -15,6 +15,7 @@ MonoBehaviour:
   abilityId: dash.test
   displayName: 冲刺
   icon: {fileID: 0}
-  description: 测试冲刺能力。本阶段仅保存参数，不执行冲刺。
+  description: 沿当前水平输入或最后朝向进行基础冲刺，碰墙时停止。
   slotCost: 4
   distance: 4
+  duration: 0.2

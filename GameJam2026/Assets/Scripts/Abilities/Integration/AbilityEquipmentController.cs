@@ -1,3 +1,4 @@
+using System;
 using GameJam2026.Abilities.Input;
 using GameJam2026.Abilities.UI;
 using UnityEngine;
@@ -17,6 +18,9 @@ namespace GameJam2026.Abilities.Integration
 
         // One scene-owned equipment session. Disabling the panel does not reset it.
         public AbilityManager Manager { get; private set; }
+
+        // A plain C# manager does not become Unity-null when its scene owner is destroyed.
+        public event Action SessionEnded;
 
         private void Awake()
         {
@@ -116,6 +120,11 @@ namespace GameJam2026.Abilities.Integration
         }
 
         private void OnDisable() => Disconnect();
-        private void OnDestroy() => Disconnect();
+        private void OnDestroy()
+        {
+            Disconnect();
+            Manager = null;
+            SessionEnded?.Invoke();
+        }
     }
 }

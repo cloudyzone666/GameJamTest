@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityId: jump.test
   displayName: 跳跃
   icon: {fileID: 0}
-  description: 测试跳跃能力。本阶段仅保存参数，不执行跳跃。
+  description: 装备后可在地面按 Space 跳跃；空中普通横移受累计行程预算限制，冲刺另算。
   slotCost: 2
   verticalHeight: 2
   maxHorizontalDistance: 2

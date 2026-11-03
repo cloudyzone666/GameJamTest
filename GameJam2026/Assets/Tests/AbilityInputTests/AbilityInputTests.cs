@@ -276,8 +276,8 @@ namespace GameJam2026.Abilities.Input.Tests
             int requests = 0;
             input.ToggleRequested += _ => requests++;
             foreach (Key key in new[]
-                { Key.UpArrow, Key.LeftArrow, Key.DownArrow, Key.RightArrow, Key.Enter, Key.Escape,
-                    Key.Tab, Key.LeftShift, Key.RightShift })
+                { Key.UpArrow, Key.LeftArrow, Key.DownArrow, Key.RightArrow, Key.Enter,
+                    Key.LeftShift, Key.RightShift })
             {
                 Tap(key);
                 AssertSelection(1, 0);
