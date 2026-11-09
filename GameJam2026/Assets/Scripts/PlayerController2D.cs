@@ -6,11 +6,17 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public sealed class PlayerController2D : MonoBehaviour
 {
+    private static readonly int IsGroundedParameter = Animator.StringToHash("IsGrounded");
+    private static readonly int IsMovingParameter = Animator.StringToHash("IsMoving");
+    private static readonly int IsDashingParameter = Animator.StringToHash("IsDashing");
+
     [SerializeField, Min(0f)] private float moveSpeed = 5f;
 
     private Rigidbody2D body;
     private PlayerJump jump;
     private PlayerDash dash;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction dashAction;
@@ -28,6 +34,8 @@ public sealed class PlayerController2D : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         jump = GetComponent<PlayerJump>();
         dash = GetComponent<PlayerDash>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         moveAction = new InputAction("Move", InputActionType.Value, expectedControlType: "Axis");
         moveAction.AddCompositeBinding("1DAxis(whichSideWins=0)")
@@ -58,6 +66,31 @@ public sealed class PlayerController2D : MonoBehaviour
     {
         moveInput = GameplayInputEnabled ? moveAction.ReadValue<float>() : 0f;
         if (moveInput != 0f) lastFacing = Mathf.Sign(moveInput);
+        SyncAnimation();
+    }
+
+    private void SyncAnimation()
+    {
+        bool isDashing = dash != null && dash.isActiveAndEnabled && dash.IsDashing;
+        if (spriteRenderer != null)
+        {
+            // The existing artwork faces left; a positive (rightward) heading needs mirroring.
+            bool flipX = (isDashing ? dash.Direction : lastFacing) > 0f;
+            if (spriteRenderer.flipX != flipX) spriteRenderer.flipX = flipX;
+        }
+
+        // Optional presentation components must never prevent the existing movement from running.
+        if (animator == null || !animator.isActiveAndEnabled || animator.runtimeAnimatorController == null) return;
+
+        // Read behavior after the physics steps; falling also uses Jump, even without a jump ability.
+        SetAnimationBool(IsGroundedParameter, jump != null && jump.IsGrounded);
+        SetAnimationBool(IsMovingParameter, Mathf.Abs(body.velocity.x) > 0.01f);
+        SetAnimationBool(IsDashingParameter, isDashing);
+    }
+
+    private void SetAnimationBool(int parameter, bool value)
+    {
+        if (animator.GetBool(parameter) != value) animator.SetBool(parameter, value);
     }
 
     private void FixedUpdate()
@@ -128,6 +161,7 @@ public sealed class PlayerController2D : MonoBehaviour
         jumpRequested = false;
         dashRequested = false;
         jumpAfterDash = false;
+        SyncAnimation();
     }
 
     // The menu blocks control without disabling this component or pausing physics.

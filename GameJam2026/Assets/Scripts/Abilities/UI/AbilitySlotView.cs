@@ -61,9 +61,12 @@ namespace GameJam2026.Abilities.UI
         {
             // Equipment color stays visible independently from the selection border.
             selectionFrame.SetActive(IsSelected);
-            background.color = EquippedCount > 0 ? new Color32(39, 79, 69, 255)
-                : Ability != null ? new Color32(30, 41, 53, 255)
-                : new Color32(22, 28, 36, 255);
+            // Image color tints the metal sprite; keep it light enough to retain the drawn bevels.
+            background.color = EquippedCount > 0 ? new Color32(222, 242, 183, 255)
+                : Ability != null ? new Color32(200, 220, 203, 255)
+                : new Color32(139, 157, 143, 255);
+            equippedCount.color = EquippedCount > 0 ? new Color32(193, 179, 129, 255)
+                : new Color32(166, 181, 164, 255);
         }
 
         private void OnDestroy()

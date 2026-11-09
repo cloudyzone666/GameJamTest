@@ -19,6 +19,7 @@ namespace GameJam2026.Abilities
 
         public bool IsDashing { get; private set; }
         public float Speed { get; private set; }
+        public float Direction => direction;
         public event Action Interrupted;
 
         private void Awake()

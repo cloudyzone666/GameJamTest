@@ -22,6 +22,7 @@ namespace GameJam2026.Abilities.UI
         [SerializeField] private Text equippedCount;
         [SerializeField] private Text remainingCapacity;
         [SerializeField] private Text operationFeedback;
+        [SerializeField] private Sprite indicatorSprite;
         [Header("Selection details")]
         [SerializeField] private Image detailIcon;
         [SerializeField] private Text detailIconFallback;
@@ -92,17 +93,18 @@ namespace GameJam2026.Abilities.UI
         {
             equippedCount.text = $"已装备 {count} / {maximum}";
             remainingCapacity.text = $"剩余能力格 {total - used} / {total}";
-            ResizeIndicators(equipmentIndicators, equipmentPositions, "Position", maximum);
-            ResizeIndicators(capacityIndicators, capacityCells, "Capacity", total);
+            ResizeIndicators(equipmentIndicators, equipmentPositions, "Position", maximum, indicatorSprite);
+            ResizeIndicators(capacityIndicators, capacityCells, "Capacity", total, indicatorSprite);
             for (int index = 0; index < equipmentIndicators.Count; index++)
                 equipmentIndicators[index].color = index < count
-                    ? new Color32(148, 210, 239, 255) : new Color32(57, 65, 77, 255);
+                    ? new Color32(208, 219, 164, 255) : new Color32(79, 91, 82, 255);
             for (int index = 0; index < capacityIndicators.Count; index++)
                 capacityIndicators[index].color = index < used
-                    ? new Color32(57, 65, 77, 255) : new Color32(149, 202, 222, 255);
+                    ? new Color32(79, 91, 82, 255) : new Color32(208, 219, 164, 255);
         }
 
-        private static void ResizeIndicators(List<Image> indicators, Transform parent, string prefix, int count)
+        private static void ResizeIndicators(List<Image> indicators, Transform parent, string prefix, int count,
+            Sprite sprite)
         {
             while (indicators.Count > count)
             {
@@ -115,14 +117,18 @@ namespace GameJam2026.Abilities.UI
                 Destroy(indicator.gameObject);
             }
             while (indicators.Count < count)
-                indicators.Add(CreateIndicator(parent, $"{prefix}_{indicators.Count}"));
+                indicators.Add(CreateIndicator(parent, $"{prefix}_{indicators.Count}", sprite));
         }
 
-        private static Image CreateIndicator(Transform parent, string objectName)
+        private static Image CreateIndicator(Transform parent, string objectName, Sprite sprite)
         {
             var item = new GameObject(objectName, typeof(RectTransform), typeof(Image), typeof(LayoutElement));
             item.transform.SetParent(parent, false);
             Image image = item.GetComponent<Image>();
+            image.sprite = sprite;
+            image.type = Image.Type.Sliced;
+            // The supplied art uses 16 PPU; at the Canvas's 100 PPU this keeps a 32px border at 8 UI units.
+            image.pixelsPerUnitMultiplier = 25f;
             image.raycastTarget = false;
             LayoutElement layout = item.GetComponent<LayoutElement>();
             layout.flexibleWidth = 1;
@@ -153,7 +159,7 @@ namespace GameJam2026.Abilities.UI
                 text.font = displayFont;
                 text.fontSize = 24;
                 text.text = category.DisplayName;
-                text.color = new Color32(222, 231, 241, 255);
+                text.color = new Color32(193, 179, 129, 255);
                 text.alignment = TextAnchor.MiddleCenter;
                 text.raycastTarget = false;
                 header.GetComponent<LayoutElement>().preferredHeight = 36;
@@ -208,7 +214,7 @@ namespace GameJam2026.Abilities.UI
             if (operationFeedback == null) return;
             operationFeedback.text = message ?? string.Empty;
             operationFeedback.color = isError
-                ? new Color32(236, 151, 140, 255) : new Color32(154, 174, 192, 255);
+                ? new Color32(218, 145, 118, 255) : new Color32(166, 181, 164, 255);
         }
 
         // Row indices grow downward in the inventory. Empty slots keep their positions.
